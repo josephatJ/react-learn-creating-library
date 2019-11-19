@@ -1,7 +1,15 @@
 {
   "name": "npx-testing-react-library",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
+  "private": false,
+  "license": "(ISC OR GPL-3.0)",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "babel": {
+    "presets": [
+      "@babel/react"
+    ]
+  },
   "dependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -10,6 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "publish:npm": "rm -r dist && mkdir dist && npx babel src/components --out-dir dist --copy-files && cp -r public/package.json dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -27,5 +36,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.0"
   }
 }
